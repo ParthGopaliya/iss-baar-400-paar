@@ -27,3 +27,8 @@ Then open `http://localhost:3000` in your browser.
 - Free Render services "sleep" after 15 minutes of no traffic and take ~30-50 seconds to wake up on the next visit. This is fine for casual personal use.
 - Uploaded photos/videos are stored on the server's disk — on Render's free tier, this storage is wiped on redeploy/restart (not on every sleep/wake, only on redeploy). For a personal chat app this is totally fine; just know old media may not survive if you push updates later.
 - If you outgrow the free tier or want persistent media storage, you could later switch to a paid Render disk or an external storage service like Cloudinary — not needed for now.
+
+### Optional: TURN server (more reliable calls across different networks)
+Calls work out of the box when both people are on the same Wi-Fi. If a call fails or keeps
+dropping between two *different* networks (e.g. Wi-Fi + mobile data), add these in Render →
+Environment: `TURN_URL` (e.g. `turn:your-host:443`), `TURN_USERNAME`, `TURN_CREDENTIAL`.
